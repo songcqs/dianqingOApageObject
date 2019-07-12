@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite thread-count="1" guice-stage="DEVELOPMENT" verbose="0" name="Failed suite [Suite]" parallel="classes">
+  <parameter name="password" value="0108152535"/>
+  <parameter name="username" value="1357863545@qq.com"/>
+  <listeners>
+    <listener class-name="org.uncommons.reportng.HTMLReporter"/>
+    <listener class-name="org.uncommons.reportng.JUnitXMLReporter"/>
+    <listener class-name="com.b.dianqingoa.util.RetryListener"/>
+    <listener class-name="com.b.dianqingoa.util.TestngListener"/>
+  </listeners>
+  <test thread-count="1" verbose="0" name="Test2(failed)" parallel="classes">
+    <classes>
+      <class name="com.f.dianqingoa.testcase.SuiteTest003_SwitchTitle">
+        <methods>
+          <include name="test05_switchApeAsk"/>
+          <include name="beforeClass"/>
+          <include name="afterClass"/>
+          <include name="test06_switchNotes"/>
+        </methods>
+      </class> <!-- com.f.dianqingoa.testcase.SuiteTest003_SwitchTitle -->
+    </classes>
+  </test> <!-- Test2(failed) -->
+</suite> <!-- Failed suite [Suite] -->

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Suite">
+  <test thread-count="5" name="Test">
+    <classes>
+     <class name="com.f.dianqingoa.testcase.SuiteTest001_Login">
+      	<methods>
+      		<include name="testLogin"></include>
+      	</methods>
+      </class>
+      <class name="com.f.dianqingoa.testcase.SuiteTest002_Logout">
+      	<methods>
+      		<include name="testLogout"></include>
+      	</methods>
+      </class>
+      <class name="com.f.dianqingoa.testcase.SuiteTest003_SwitchTitle">
+      	<methods>
+      		<include name="test01_switchCourse"></include>
+      		<include name="test02_switchPracticalCourse"></include>
+      		<include name="test03_switchEmploymentClasses"></include>
+      	</methods>
+      </class>
+    </classes>
+  </test> <!-- Test -->
+</suite> <!-- Suite -->

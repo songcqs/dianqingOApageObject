@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="dianqingOApageObject" default="run" basedir=".">
+    <property name="testng.dir" value="E:\Javaworkspace\dianqingOApageObject"/>  
+    <property name="testng.output.dir" value="E:\Javaworkspace\dianqingOApageObject\test-output"/> 
+    <path id="run.classpath">
+        <fileset dir="jar">
+            <include name="testng\*.jar"></include>
+		    <include name="httpcomponents-client-4.5.3\lib\*.jar"></include>
+		    <include name="json\*.jar"></include>
+		    <include name="poi-3.15\*.jar"></include>
+		    <include name="poi-3.15\lib\*.jar"></include>
+		    <include name="poi-3.15\ooxml-lib\*.jar"></include>
+		    <include name="spring-framework-4.3.7.RELEASE\libs\*.jar"></include>
+		    <include name="*.jar"></include>
+        </fileset>
+    </path>
+    <path id="test.lib.classpath">
+        <fileset dir="lib">
+    		<include name="*.jar"></include>
+    	</fileset>
+    </path>
+	<!-- <taskdef name="testng" classname="org.testng.TestNGAntTask" classpathref="run.classpath" /> --> 
+	<taskdef resource="testngtasks" classpath="${lib.dir}/testng-6.10.jar"/><!-- 指定testNg需要的Jar包-->
+    <target name="clean">
+        <delete dir="bin"/>
+    </target>
+    <target name="compile" depends="clean">
+        <echo message="mkdir"/>
+        <mkdir dir="bin"/>
+        <javac srcdir="src"  includeantruntime="false"
+            debug="on" debuglevel="lines,vars,source"  destdir="bin" encoding="GBK">
+            <classpath refid="run.classpath"/>
+        </javac>
+    </target>
+    <path id="runpath"> 
+         <path refid="run.classpath"/> 
+         <pathelement location="bin"/> 
+    </path> 
+    <target name="run" depends="compile" description="执行TestNg测试用例">
+    	<!--
+    	<testng classpathref="compile.path"   
+        outputDir="${output.dir}"   
+        haltOnfailure="true"   
+        useDefaultListeners="false"   
+        listeners="org.uncommons.reportng.HTMLReporter,org.testng.reporters.FailedReporter" >  
+       		 设置TestNg所包含的xml文件 
+        <xmlfileset dir="${basedir}" includes="testng.xml" />  
+        	设置报告Title名称  
+        <sysproperty key="org.uncommons.reportng.title" value="自动化测试报告" />  
+    	</testng>    	
+    	-->    	
+    	
+        <testng  classpathref="runpath"  outputDir="test-output" 
+            haltonfailure="true" failureproperty="test.failed">  
+            <xmlfileset dir="${basedir}" includes="testng.xml"/>
+        </testng>
+
+        <xslt in="${testng.output.dir}/testng-results.xml" 
+               style="${testng.output.dir}/testng-results.xsl" 
+               out="${testng.output.dir}\index1.html">  
+               <param name="testNgXslt.outputDir" expression="${testng.output.dir}"/>  
+               <param name="testNgXslt.showRuntimeTotals" expression="true"/>  
+               <classpath refid="test.lib.classpath"/>  
+        </xslt>
+
+   </target> 
+</project>
+

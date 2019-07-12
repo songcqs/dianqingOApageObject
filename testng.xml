@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<!-- parallel的取值有三个:tests,methods,classes.属性 thread-count 允许你为当前的执行指定可以运行的线程数量。
+	它们的共同点都是最多起5个线程去同时执行不同的用例。
+	它们的区别如下：
+	tests级别：不同test tag下的用例可以在不同的线程执行，相同test tag下的用例只能在同一个线程中执行。
+	classs级别：不同class tag下的用例可以在不同的线程执行，相同class tag下的用例只能在同一个线程中执行。
+	methods级别：所有用例都可以在不同的线程去执行。
+	
+   1. 在suite中使用的话，它控制各个test的执行顺序，例如我把发送测试结果邮件放到最后面执行。
+　　 2. 在test中使用的话，它控制各个class的执行顺序。
+　 　3. 在class中使用priority/enable/dependsOnMethods,则只能束缚在自己的class内部执行顺序。
+	
+	parallel 参数值默认为false，表示使用该数据源的测试方法不能并发执行，将其设置为true，表示使用该数据源的测试方法可以并发执行.
+ -->
+<suite name="Suite" parallel="true" thread-count="1">
+	<listeners>
+		<listener class-name="org.uncommons.reportng.HTMLReporter"></listener>
+		<listener class-name="org.uncommons.reportng.JUnitXMLReporter"></listener>
+	
+	 	<!-- <listener class-name="com.b.dianqingoa.util.RePrioritizingListener"></listener> -->
+		<listener class-name="com.b.dianqingoa.util.RetryListener"></listener>
+		<listener class-name="com.b.dianqingoa.util.TestngListener"></listener>
+	</listeners>
+    <parameter name ="username" value="1357863545@qq.com"/>
+    <parameter name ="password" value="0108152535"/>
+    
+  <!-- preserve-order 参数用于控制测试用例的执行顺序。默认值是true。如果为： true， 测试用顺序执行;如果为： false， 那么默认会按
+　　照用例的名称的有字母/数字的顺序执行。默认为 true 。 -->
+  <!-- <test name="test2" enabled="true"> enabled属性默认值是true，当设置为false的时候，该<test>标签下的测试用例不再执行-->
+
+ <!--  <test name="Test1">
+	  <classes>
+	  	<class name="com.f.dianqingoa.testcase.SuiteTest001_Login"></class>
+	  </classes>
+  </test> -->
+
+  <!-- <test name="Test2" preserve-order="true">
+  	<packages>
+  		<package name="com.f.dianqingoa.testcase">
+  			<exclude name="com.f.dianqingoa.testcase.SuiteCookieLogin"></exclude>
+  			<include name="">
+  				<classes>
+  					<class name="com.f.dianqingoa.testcase.SuiteTest001_Logion"></class>
+  					<class name="com.f.dianqingoa.testcase.SuiteTest002_Logout"></class>
+  					<class name="com.f.dianqingoa.testcase.SuiteTest003_SwitchTitle"></class>
+  				</classes>
+  			</include>
+  		</package>
+  	</packages>
+  </test> -->
+  
+	<test name="Test2" preserve-order="true">
+  		<classes>
+  			<class name="com.f.dianqingoa.testcase.SuiteTest001_Login"></class>
+  			<class name="com.f.dianqingoa.testcase.SuiteTest002_Logout"></class>
+  			<class name="com.f.dianqingoa.testcase.SuiteTest003_SwitchTitle"></class>
+  		</classes>
+  	</test>
+
+</suite>

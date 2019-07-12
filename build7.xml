@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="dianqingOApageObject" basedir="." default="transform"><!-- 需要修改为你的工程名称 -->
+    <echo message="The base dir is: ${basedir}"/>
+    <!--<property name="lib.dir" value="jar"/>-->
+    <property name="lib.dir" value="lib"/>
+    <echo message="The base dir is: ${lib.dir}"/>
+    <path id="test.classpath">
+	    <!-- adding the saxon jar to your classpath -->
+	    <fileset dir="${lib.dir}" includes="*.jar"/><!-- 需要修改为你的testng-xslt-1.1解压目录 -->
+    </path>
+
+	<target name="transform">
+    <!-- 替换为自己的project目录 -->
+    <xslt in="${basedir}\test-output\testng-results.xml" 
+          style="${basedir}\test-output\testng-results.xsl"
+          out="${basedir}\test-output\testReport.html"> <!-- 修改为你的工程所在的测试报告输出目录 -->
+        	
+    <param name="testNgXslt.outputDir" expression="${basedir}\test-output"/>
+    <classpath refid="test.classpath"/>
+    </xslt>
+	</target>  
+	
+</project>
+

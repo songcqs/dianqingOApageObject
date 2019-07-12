@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="Test1"
+           tests="3"
+           failures="0"
+           errors="0"
+           skipped="3"
+           time="23.877">
+  <properties />
+  
+            <testcase name="testLogin" time="0.0" classname="com.f.dianqingoa.testcase.SuiteLogionTest">
+          <skipped />
+    </testcase>
+            <testcase name="testLogin" time="0.0" classname="com.f.dianqingoa.testcase.SuiteLogionTest">
+          <skipped />
+    </testcase>
+            <testcase name="testLogin" time="0.0" classname="com.f.dianqingoa.testcase.SuiteLogionTest">
+          <skipped />
+    </testcase>
+  
+  
+</testsuite>

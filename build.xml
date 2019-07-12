@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name= "dianqingOApageObject" basedir= "." default="transform"><!-- 需要修改为你的工程名称 -->
+<property name= "lib.dir" value= "lib" />
+<path id= "test.classpath" >
+<!-- adding the saxon jar to your classpath 将saxon jar添加到类路径 -->
+<fileset dir= "${lib.dir}" includes= "*.jar" /><!-- 记住:用这种方式,lib下必须有saxon.jar包 -->
+</path>
+	
+<target name= "transform" >
+<tstamp>
+	<format property="touch.time" pattern="yyyy-MM-dd hh.mm" />
+</tstamp>
+<!-- 需要根据自己的环境进行配置（将E:/workspace/testNG/替换成你自己project的目录） -->
+<!-- <xslt in= "C:\Users\Administrator\eclipse-workspace\wushuaiTest\test-output/testng-results.xml" 
+	style= "C:\Users\Administrator\eclipse-workspace\wushuaiTest\test-output/testng-results.xsl"
+	out= "C:\Users\Administrator\eclipse-workspace\wushuaiTest\test-output/TestReport/index.html " > -->
+<xslt in= "test-output/testng-results.xml" 
+	style= "test-output/testng-results.xsl"
+	out= "E://Javaworkspace/dianqingOApageObject/result/${touch.time}_index.html" ><!-- 修改为你的工程所在的测试报告输出目录 -->
+	<!-- out= "result/${CURTIME}/index.html" > -->
+	
+<!-- 需要根据自己的环境进行配置（将E:/workspace/testNG/替换成你自己project的目录） -->
+<!-- you need to specify the directory here again -->
+	<param name= "testNgXslt.outputDir" expression= "E://Javaworkspace/dianqingOApageObject/result/" />
+	<!--<param name= "testNgXslt.outputDir" expression= "${base.dir}/result/${CURTIME}/" />-->
+<classpath refid= "test.classpath" />
+</xslt>
+</target>
+</project>

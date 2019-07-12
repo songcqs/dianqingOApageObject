@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="Test2"
+           tests="1"
+           failures="0"
+           errors="0"
+           skipped="0"
+           time="3.202">
+  <properties />
+  
+  
+            <testcase name="testLogout" time="3.202" classname="com.f.dianqingoa.testcase.SuiteTest002_Logout" />
+      
+</testsuite>

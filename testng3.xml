@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<!-- 
+parallel的取值有三个:tests,methods,classes:
+    1. 在suite中使用的话，它控制各个test的执行顺序，例如我把发送测试结果邮件放到最后面执行。
+　　   2. 在test中使用的话，它控制各个class的执行顺序。
+　 　  *. 在class中使用priority/enable/dependsOnMethods,则只能束缚在自己的class内部执行顺序。
+ -->
+<suite name="Suite" parallel="classes" thread-count="1">
+	<listeners>
+		<listener class-name="org.uncommons.reportng.HTMLReporter" />
+		<listener class-name="org.uncommons.reportng.JUnitXMLReporter" />
+		
+		<listener class-name="com.b.dianqingoa.util.RetryListener"></listener>
+		<listener class-name="com.b.dianqingoa.util.TestngListener"></listener>
+	</listeners>
+    <parameter name ="username" value="1357863545@qq.com"/>
+    <parameter name ="password" value="0108152535"/>
+  
+    <test name="Test1">
+  		<classes>
+  		<class name="com.f.dianqingoa.testcase.SuiteTest001_Login"></class>
+  		</classes>
+  	</test>
+  
+	<test name="Test2">
+  		<classes>
+  			<class name="com.f.dianqingoa.testcase.SuiteTest002_Logout"></class>
+  			<class name="com.f.dianqingoa.testcase.SuiteTest003_SwitchTitle"></class>
+  		</classes>
+  	</test>
+
+</suite>
