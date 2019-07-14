@@ -110,7 +110,7 @@ public class SuiteTest003_SwitchTitle {
 	public void test05_switchApeAsk() {
 		homePageBus.clickApeAskElement();
 		boolean bool = homePage.isExsit(apeAskPage.getApeAskImgElement());
-		assertTrue(false, "跳转转失败！！！");
+		assertTrue(bool, "跳转转失败！！！");
 		driver.returnToPreviousPage();
 	}
 
@@ -119,7 +119,7 @@ public class SuiteTest003_SwitchTitle {
 	public void test06_switchNotes() {
 		homePageBus.clickNotesElement();
 		boolean bool = homePage.isExsit(notesPage.getNotesImgElement());
-		assertTrue(false, "跳转转失败！！！");
+		assertTrue(bool, "跳转转失败！！！");
 		driver.returnToPreviousPage();
 	}
 

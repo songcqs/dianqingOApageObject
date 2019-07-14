@@ -179,7 +179,8 @@
                             
 					</properties>
 					
-					<workingDirectory>target/</workingDirectory>
+					<!-- <workingDirectory>target/</workingDirectory> --><!-- 用这个会因找不到外部的配置文件而出错 -->
+					 <outputDirectory>${basedir}/target/</outputDirectory>
 					
 				</configuration>
 			</plugin>

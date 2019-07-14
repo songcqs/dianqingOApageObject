@@ -1,15 +1,22 @@
 -------------------------------------------------------------------------------
 Test set: TestSuite
 -------------------------------------------------------------------------------
-Tests run: 14, Failures: 2, Errors: 0, Skipped: 6, Time elapsed: 126.16 sec <<< FAILURE! - in TestSuite
-test05_switchApeAsk(com.f.dianqingoa.testcase.SuiteTest003_SwitchTitle)  Time elapsed: 2.206 sec  <<< FAILURE!
+Tests run: 17, Failures: 3, Errors: 0, Skipped: 9, Time elapsed: 193.971 sec <<< FAILURE! - in TestSuite
+test04_switchSpecialColumn(com.f.dianqingoa.testcase.SuiteTest003_SwitchTitle)  Time elapsed: 4.514 sec  <<< FAILURE!
+java.lang.AssertionError: 跳转转失败！！！ expected [true] but found [false]
+	at org.testng.Assert.fail(Assert.java:96)
+	at org.testng.Assert.failNotEquals(Assert.java:776)
+	at org.testng.Assert.assertTrue(Assert.java:44)
+	at com.f.dianqingoa.testcase.SuiteTest003_SwitchTitle.test04_switchSpecialColumn(SuiteTest003_SwitchTitle.java:104)
+
+test05_switchApeAsk(com.f.dianqingoa.testcase.SuiteTest003_SwitchTitle)  Time elapsed: 4.973 sec  <<< FAILURE!
 java.lang.AssertionError: 跳转转失败！！！ expected [true] but found [false]
 	at org.testng.Assert.fail(Assert.java:96)
 	at org.testng.Assert.failNotEquals(Assert.java:776)
 	at org.testng.Assert.assertTrue(Assert.java:44)
 	at com.f.dianqingoa.testcase.SuiteTest003_SwitchTitle.test05_switchApeAsk(SuiteTest003_SwitchTitle.java:113)
 
-test06_switchNotes(com.f.dianqingoa.testcase.SuiteTest003_SwitchTitle)  Time elapsed: 2.912 sec  <<< FAILURE!
+test06_switchNotes(com.f.dianqingoa.testcase.SuiteTest003_SwitchTitle)  Time elapsed: 5.163 sec  <<< FAILURE!
 java.lang.AssertionError: 跳转转失败！！！ expected [true] but found [false]
 	at org.testng.Assert.fail(Assert.java:96)
 	at org.testng.Assert.failNotEquals(Assert.java:776)

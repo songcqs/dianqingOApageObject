@@ -94,13 +94,13 @@
 		<!-- https://mvnrepository.com/artifact/org.apache.poi/poi 依赖poi -->
 		<dependency>
 			<groupId>org.apache.poi</groupId>
-			<artifactId>poi</artifactId>
+			<artifactId>poi</artifactId><!-- 用于操作EXCEL和WORD的工具包 -->
 			<version>3.17</version>
 		</dependency>
 		<!-- https://mvnrepository.com/artifact/net.sourceforge.jexcelapi/jxl 依赖jxl -->
 		<dependency>
 			<groupId>net.sourceforge.jexcelapi</groupId>
-			<artifactId>jxl</artifactId>
+			<artifactId>jxl</artifactId><!-- 通过java操作excel表格的工具类库，是由java语言开发而成的 -->
 			<version>2.6.12</version>
 		</dependency>
 
@@ -158,7 +158,7 @@
 				<configuration>
 					<source>1.8</source><!-- 源代码编译版本 -->
 					<target>1.8</target><!-- 目标平台编译版本 -->
-					<encoding>UTF-8</encoding><!-- 字符集编码，解决"编码 GBK 的不可映射字符"问题 -->
+					<encoding>UTF-8</encoding><!-- 字符集编码，解决"编码 GBK 的不可映射字符"问题 --><!-- 指定编码格式，否则在DOS下运行mvn compile命令时会出现莫名的错误，因为系统默认使用GBK编码 -->
 					<!-- <source>${project.compile.version}</source> <target>${project.compile.version}</target> 
 						<encoding>${project.build.sourceEncoding}</encoding> -->
 				</configuration>
@@ -208,7 +208,8 @@
 					</properties>
 					<!-- 意思是,项目中只要涉及到读写都要去target文件中,使allure-results在target文件夹下（很重要） -->
 
-					<workingDirectory>target/</workingDirectory>
+					<!-- <workingDirectory>target/</workingDirectory> --><!-- 用这个会因找不到外部的配置文件而出错 -->
+					 <outputDirectory>${basedir}/target/</outputDirectory>
 
 					<!-- Maven运行测试用例时，是通过调用maven的surefire插件并fork一个子进程来执行用例的。 forkmode属性中指明是要为每个测试 
 						创建一个进程，还是所有测试在同一个进程中完成。 forkMode 可设置值有 “never”， “once”， “always” 和 “pertest”。 

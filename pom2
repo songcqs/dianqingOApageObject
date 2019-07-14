@@ -48,7 +48,7 @@
         <!-- 依赖Guice -->
         <dependency>
             <groupId>com.google.inject</groupId>
-            <artifactId>guice</artifactId>
+            <artifactId>guice</artifactId><!--依赖注入的框架-->
             <version>3.0</version>
             <scope>test</scope>
         </dependency>
@@ -100,7 +100,8 @@
                             <value>org.uncommons.reportng.HTMLReporter</value>
                         </property>
                     </properties>
-                    <workingDirectory>target/</workingDirectory>
+                    <!-- <workingDirectory>target/</workingDirectory> --><!-- 用这个会因找不到外部的配置文件而出错 -->
+					 <outputDirectory>${basedir}/target/</outputDirectory>
                     <!-- <forkMode>always</forkMode> -->
                 </configuration>
             </plugin>

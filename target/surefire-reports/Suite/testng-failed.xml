@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite thread-count="1" guice-stage="DEVELOPMENT" verbose="0" name="Failed suite [Suite]" parallel="classes">
+<suite thread-count="1" guice-stage="DEVELOPMENT" verbose="0" name="Failed suite [Suite]" parallel="methods">
   <parameter name="password" value="0108152535"/>
   <parameter name="username" value="1357863545@qq.com"/>
   <listeners>
@@ -9,7 +9,7 @@
     <listener class-name="com.b.dianqingoa.util.RetryListener"/>
     <listener class-name="com.b.dianqingoa.util.TestngListener"/>
   </listeners>
-  <test thread-count="1" verbose="0" name="Test2(failed)" parallel="classes">
+  <test thread-count="1" verbose="0" name="Test2(failed)" parallel="methods">
     <classes>
       <class name="com.f.dianqingoa.testcase.SuiteTest003_SwitchTitle">
         <methods>
@@ -17,6 +17,7 @@
           <include name="beforeClass"/>
           <include name="afterClass"/>
           <include name="test06_switchNotes"/>
+          <include name="test04_switchSpecialColumn"/>
         </methods>
       </class> <!-- com.f.dianqingoa.testcase.SuiteTest003_SwitchTitle -->
     </classes>

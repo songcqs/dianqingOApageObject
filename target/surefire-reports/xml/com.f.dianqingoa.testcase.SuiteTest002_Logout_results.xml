@@ -4,10 +4,10 @@
            failures="0"
            errors="0"
            skipped="0"
-           time="3.202">
+           time="3.184">
   <properties />
   
   
-            <testcase name="testLogout" time="3.202" classname="com.f.dianqingoa.testcase.SuiteTest002_Logout" />
+            <testcase name="testLogout" time="3.184" classname="com.f.dianqingoa.testcase.SuiteTest002_Logout" />
       
 </testsuite>
