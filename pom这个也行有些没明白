@@ -1,0 +1,95 @@
+<project
+	xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>com.dianqingoa.demo</groupId>
+	<artifactId>dianqingOApageObject</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>jar</packaging>
+
+	<!-- maven 运行测试name -->
+	<name>dianqingOApageObject</name>
+	<url>http://maven.apache.org</url>
+
+	<!-- maven 参数配置，这里引用不同的testng.xml -->
+	<properties>
+		<!-- 文件拷贝时的编码 -->
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding><!-- 
+			让整个项目统一字符集编码 -->
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+		<!-- 编译时的编码 -->
+		<maven.compiler.encoding>UTF-8</maven.compiler.encoding>
+		<xmlFileName>testng.xml</xmlFileName>
+	</properties>
+
+	<dependencies>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>3.8.1</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.seleniumhq.selenium</groupId>
+			<artifactId>selenium-java</artifactId>
+			<version>2.44.0</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.testng</groupId>
+			<artifactId>testng</artifactId>
+			<version>6.14.2</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.uncommons</groupId>
+			<artifactId>reportng</artifactId>
+			<version>1.1.4</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.google.inject</groupId>
+			<artifactId>guice</artifactId>
+			<version>3.0</version>
+			<scope>test</scope>
+		</dependency>
+	</dependencies>
+
+	<build>
+	<plugins>
+	<plugin>
+      <groupId>org.apache.maven.plugins</groupId><!--使用该插件设置TESTNG的配置文件位置-->
+      <artifactId>maven-surefire-plugin</artifactId>
+      <executions>
+          <execution>
+                <goals>
+                       <goal>test</goal>
+                </goals>
+         </execution>
+      </executions>
+      <version>2.19</version>
+             <configuration>
+                    <properties>
+                        <property>
+                            <name>usedefaultlisteners</name>
+                            <value>false</value>
+                        </property>
+                        <property>
+                            <name>listener</name>
+                            <value>org.uncommons.reportng.HTMLReporter,org.uncommons.reportng.JUnitXMLReporter</value>
+                        </property>
+                    </properties>
+                    <suiteXmlFiles>
+                        <suitXmlFile>testng.xml</suitXmlFile><!--配置testng.xml文件的位置，我这里是在主目录下-->
+                    </suiteXmlFiles>
+                    <reportsDirectory>./target/${timestamp}</reportsDirectory>
+                    <systemPropertyVariables>
+                        <org.uncommons.reportng.escape-output>false</org.uncommons.reportng.escape-output>
+                    </systemPropertyVariables>
+                </configuration>
+ 	</plugin>
+ 	</plugins>
+</build>
+</project>

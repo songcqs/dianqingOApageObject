@@ -182,6 +182,15 @@
 						<!-- <suiteXmlFile>res/${xmlFileName}</suiteXmlFile> -->
 					</suiteXmlFiles>
 					
+					<!-- 
+					默认就是产生在target目录下面的surefire-reports目录里，所以不需要配置reportsDirectory。
+					<reportsDirectory>./target/${timestamp}</reportsDirectory>
+                    <systemPropertyVariables>
+                    	为了报告中的显示不会单纯的显示出html，而且能够正确的加载出html
+                        <org.uncommons.reportng.escape-output>false</org.uncommons.reportng.escape-output>
+                    </systemPropertyVariables>
+					 -->
+					
 					<!-- 加入编码设置，否则生成的报告会中文乱码 -->
 					<argLine>-Dfile.encoding=UTF-8</argLine>
 					
@@ -204,7 +213,7 @@
 					<!-- 意思是,项目中只要涉及到读写都要去target文件中,使allure-results在target文件夹下（很重要） -->
 
 					<!-- <workingDirectory>target/</workingDirectory> --><!-- 用这个会因找不到外部的配置文件而出错 -->
-					<outputDirectory>${basedir}/target/</outputDirectory>
+					<outputDirectory>${basedir}/target/</outputDirectory><!-- 感觉没起作用？ -->
 
 					<!-- Maven运行测试用例时，是通过调用maven的surefire插件并fork一个子进程来执行用例的。 forkmode属性中指明是要为每个测试 
 						创建一个进程，还是所有测试在同一个进程中完成。 forkMode 可设置值有 “never”， “once”， “always” 和 “pertest”。 

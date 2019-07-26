@@ -4,15 +4,15 @@
            failures="0"
            errors="0"
            skipped="0"
-           time="34.319">
+           time="46.922">
   <properties />
   
   
-            <testcase name="test01_switchCourse" time="2.288" classname="com.f.dianqingoa.testcase.SuiteTest003_SwitchTitle" />
-                <testcase name="test04_switchSpecialColumn" time="6.162" classname="com.f.dianqingoa.testcase.SuiteTest003_SwitchTitle" />
-                <testcase name="test05_switchApeAsk" time="3.610" classname="com.f.dianqingoa.testcase.SuiteTest003_SwitchTitle" />
-                <testcase name="test02_switchPracticalCourse" time="7.227" classname="com.f.dianqingoa.testcase.SuiteTest003_SwitchTitle" />
-                <testcase name="test03_switchEmploymentClasses" time="9.849" classname="com.f.dianqingoa.testcase.SuiteTest003_SwitchTitle" />
-                <testcase name="test06_switchNotes" time="5.183" classname="com.f.dianqingoa.testcase.SuiteTest003_SwitchTitle" />
+            <testcase name="test01_switchCourse" time="3.985" classname="com.f.dianqingoa.testcase.SuiteTest003_SwitchTitle" />
+                <testcase name="test02_switchPracticalCourse" time="10.621" classname="com.f.dianqingoa.testcase.SuiteTest003_SwitchTitle" />
+                <testcase name="test03_switchEmploymentClasses" time="12.050" classname="com.f.dianqingoa.testcase.SuiteTest003_SwitchTitle" />
+                <testcase name="test05_switchApeAsk" time="4.608" classname="com.f.dianqingoa.testcase.SuiteTest003_SwitchTitle" />
+                <testcase name="test04_switchSpecialColumn" time="10.305" classname="com.f.dianqingoa.testcase.SuiteTest003_SwitchTitle" />
+                <testcase name="test06_switchNotes" time="5.353" classname="com.f.dianqingoa.testcase.SuiteTest003_SwitchTitle" />
       
 </testsuite>

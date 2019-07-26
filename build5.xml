@@ -2,7 +2,7 @@
 <project basedir="." default="run" name="dianqingOApageObject">
     <property name="src" value="${basedir}\src" />
     <property name="bin" value="${basedir}\bin" />
-    <property name="lib" value="${basedir}\libs" />
+    <property name="lib" value="${basedir}\lib" />
     <property name="report" value="${basedir}\test-output" />
     <property name="suite" value="${basedir}" />
     <property name="debuglevel" value="source,lines,vars" />

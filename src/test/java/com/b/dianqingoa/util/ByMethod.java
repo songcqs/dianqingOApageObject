@@ -4,6 +4,9 @@ import java.io.IOException;
 
 import org.openqa.selenium.By;
 
+/**
+ * 根据属性文件中的元素自动进行By定位
+ */
 public class ByMethod {
 
 	/**

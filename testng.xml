@@ -14,6 +14,7 @@
 	
 	parallel 参数值默认为false，表示使用该数据源的测试方法不能并发执行，将其设置为true，表示使用该数据源的测试方法可以并发执行.
  -->
+ <!-- Window——Preferences——TestNG——Disable default listeners，选择此项的话，testNG原始测试报告的test-output就不自动生成 -->
 <suite name="Suite" parallel="true" thread-count="1">
 	<listeners>
 		<listener class-name="org.uncommons.reportng.HTMLReporter"></listener>

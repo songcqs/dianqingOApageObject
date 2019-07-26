@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project basedir="." name="dianqingOAandMuke"> <!--默认使用testoutput任务-->
+	<property name="base.dir" value="D://Javaworkspace//dianqingOAandMuke"/><!--项目根目录-->
+	
+	<!--1.标签：property，声明变量，下面的代码有两个变量，${testng.dir}：指向项目的根目录;
+		${testng.output.dir}：指向的是test-output文件，主要用于报告优化-->
+	<property name="testng.dir" value="D:\eclipse-workspace\dianqingOAandMuke"/> 
+	<property name="testng.output.dir" value="D:\eclipse-workspace\dianqingOAandMuke\test-output"/>
+	<property name="lib.dir" value="${base.dir}/lib"/><!--设置其他jar包目录-->
+	
+	<!--2.标签：path，路径；id，标签path的标识。标签：fileset，这里主要是找到项目中的jar包；
+		dir，jar包在项目中的路径。标签：include，加载jar包。-->	
+	<path id="run.classpath">
+	        <fileset dir="jar">
+	            <include name="testng\*.jar"></include>
+	            <include name="httpcomponents-client-4.5.3\lib\*.jar"></include>
+	            <include name="json\*.jar"></include>
+	            <include name="poi-3.15\*.jar"></include>
+	            <include name="poi-3.15\lib\*.jar"></include>
+	            <include name="poi-3.15\ooxml-lib\*.jar"></include>
+	            <include name="spring-framework-4.3.7.RELEASE\libs\*.jar"></include>
+	            <include name="*.jar"></include>
+	        </fileset>
+	    </path>
+	    <path id="test.lib.classpath">
+	        <fileset dir="lib">
+	            <include name="*.jar"></include>
+	        </fileset>
+	    </path>
+	
+	<!--3.标签：taskdef，具体是什么意思也不是太明白，但是我觉得应该是找到testng.jar里的TestNGAntTask类，
+		用以ant运行testng！classpathref，导入项目需要的jar包！-->
+	<!--<taskdef name="testng" classname="org.testng.TestNGAntTask" classpathref="run.classpath" />--> 
+	<taskdef resource="testngtasks" classpath="${lib.dir}/testng-6.10.jar"/><!--导入testng的jar包-->
+	
+	<!--4.标签：target，有点像java中类的感觉，可以有多个target标签，但是必须有一个标签的name必须与project的default的值一致。
+		而target也可以依赖其他target。
+	              name：属性名
+	              depends：表示依赖的目标，有填这个值，会先执行依赖这个target。
+	             在实践中遇到的几个坑：
+	              1.必须删除classpath目录，并重建classpath目录，这里指的是bin目录，项目运行时会把src目录下的文件copy到
+	              	bin目录下，如果不删除的话,并重建bin目录的话，运行testng.xml时，会报异常：找不到指定的类。
+	              2.运行java代码时的编码encoding="GBK"，否则也有可能报异常。
+	-->
+	<target name="clean">
+	        <delete dir="bin"/>
+	</target>
+
+	<target name="compile" depends="clean">
+	        <echo message="mkdir"/>
+	        <mkdir dir="bin"/>
+	        <javac srcdir="src"  includeantruntime="false"
+	            debug="on" debuglevel="lines,vars,source"  destdir="bin" encoding="GBK">
+	            <classpath refid="run.classpath"/>
+	        </javac>
+	    </target>
+	    <path id="runpath">
+	         <path refid="run.classpath"/>
+	         <pathelement location="bin"/>
+	    </path>
+	    <target name="run" depends="compile">
+	        <testng  classpathref="runpath"  outputDir="test-output"
+	            haltonfailure="true" failureproperty="test.failed"> 
+	            <xmlfileset dir="${basedir}" includes="testng.xml"/>
+	        </testng>
+	     </target>
+
+    <path id="runpath">
+         <path refid="run.classpath"/>
+         <pathelement location="bin"/>
+    </path>
+	
+	<target name="runTestng" depends="compile">
+		<testng  classpathref="runpath"  outputDir="test-output" 
+            haltonfailure="true"
+            useDefaultListeners="false"   
+            listeners="org.uncommons.reportng.HTMLReporter,org.testng.reporters.FailedReporter" >
+			<xmlfileset dir="${basedir}" includes="Parametertestng.xml"/>
+			<jvmarg value="-Dfile.encoding=UTF-8" />
+			<sysproperty key="org.uncommons.reportng.title" value="AutoMation TestReport" />
+		</testng>
+	</target>
+	
+	
+    <!--<target name="run" depends="compile">
+        <testng  classpathref="runpath"  outputDir="test-output"
+            haltonfailure="true" failureproperty="test.failed"> 
+            <xmlfileset dir="${basedir}" includes="testng.xml"/>
+        </testng>-->
+	
+	<!--4.表签：xslt，优化报告
+			  in，testng的运行结果
+			  style，把testng的运行结果进行ui美化
+			  out，输出优化报告
+	-->
+	<xslt in="${testng.output.dir}/testng-results.xml"
+	               style="${testng.output.dir}/testng-results.xsl"
+	               out="${testng.output.dir}\index1.html"> 
+	               <param name="testNgXslt.outputDir" expression="${testng.output.dir}"/> 
+	               <param name="testNgXslt.showRuntimeTotals" expression="true"/> 
+	               <classpath refid="test.lib.classpath"/> 
+	          </xslt>
+</project>
+

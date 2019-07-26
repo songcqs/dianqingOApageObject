@@ -3,13 +3,13 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.f.dianqingoa.testcase.SuiteTest003_SwitchTitle">
+      <class name="com.f.dianqingoa.testcase.SuiteTest002_Logout">
         <methods>
-          <include name="test05_switchApeAsk"/>
+          <include name="testLogout"/>
           <include name="beforeClass"/>
           <include name="afterClass"/>
         </methods>
-      </class> <!-- com.f.dianqingoa.testcase.SuiteTest003_SwitchTitle -->
+      </class> <!-- com.f.dianqingoa.testcase.SuiteTest002_Logout -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

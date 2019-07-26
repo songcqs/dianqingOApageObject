@@ -51,13 +51,13 @@ public class SelectDriver {
 			 */
 			// 自定义安装要这么写，使用上面的会报错找不到Firefox浏览器
 			System.setProperty("webdriver.firefox.bin", 
-					"E:\\Program Files (x86)\\Mozilla Firefox\\firefox.exe");
+					"D:\\Program Files (x86)\\Mozilla Firefox\\firefox.exe");
 			driver = new FirefoxDriver();
 			break;
 		case "chrome":
 		case "Chrome":
 			System.setProperty("webdriver.chrome.driver",
-					"E:/Program Files/Google/Chrome/Application/chromedriver.exe");
+					"D:/Program Files/Google/Chrome/Application/chromedriver.exe");
 			driver = new ChromeDriver();
 			break;
 		default:

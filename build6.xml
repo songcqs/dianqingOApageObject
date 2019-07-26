@@ -16,12 +16,12 @@
 			<include name="libs/*.jar" />
 		</fileset>
 	</path>
-	<!--<taskdef name="testng" classname="org.testng.TestNGAntTask" classpathref="run.classpath" />-->
-	<taskdef name="testng" classname="org.testng.TestNGAntTask">
+	<taskdef name="testng" classname="org.testng.TestNGAntTask" classpathref="run.classpath" />
+	<!--<taskdef name="testng" classname="org.testng.TestNGAntTask">
 		<classpath>
-		      <pathelement location="lib/testng.jar"/>
-		    </classpath>
-	</taskdef>
+		    <pathelement location="lib/testng.jar"/>
+		</classpath>
+	</taskdef>-->
 	<target name="clean">
 		<delete dir="build" />
 	</target>

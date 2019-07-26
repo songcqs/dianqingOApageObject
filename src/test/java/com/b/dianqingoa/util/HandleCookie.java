@@ -73,17 +73,20 @@ public class HandleCookie {
 					String path = stringTokenizer.nextToken();// 路径
 					Date expiry = null;// 日期
 					String dt;
-//					String dt = stringTokenizer.nextToken();
 
 					// 日期不为空时
 					if (!(dt = stringTokenizer.nextToken()).equals("null")) {
-//					if (!(dt).equals("null")) {
 						expiry = new Date(dt);
-//						SimpleDateFormat simpleDateFormat = new SimpleDateFormat();
+
+//用这个cookie登录就不行了？？？     SimpleDateFormat simpleDateFormat = new SimpleDateFormat();
+//						 SimpleDateFormat中的parse方法可以把String型的字符串转换成特定格式的date类型,返回一个Date类型数据
+//						 format返回的是一个StringBuffer类型的数据
 //						expiry = simpleDateFormat.parse(dt);
 					}
+
 					// booleanValue() 将此 Boolean 对象的值作为基本布尔值返回。
-					boolean isSecure = new Boolean(stringTokenizer.nextToken()).booleanValue();
+//	也可以			boolean isSecure = new Boolean(stringTokenizer.nextToken()).booleanValue();
+					boolean isSecure = Boolean.valueOf(stringTokenizer.nextToken()).booleanValue();
 
 					Cookie cookie = new Cookie(name, value, domain, path, expiry, isSecure);
 					driverBase.addCookie(cookie);

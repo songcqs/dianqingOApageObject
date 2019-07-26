@@ -8,6 +8,9 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
 
+/**
+ * 该类的作用是：读取属性文件
+ */
 public class ReadProperties {
 
 	private Properties properties;

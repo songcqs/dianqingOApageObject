@@ -1,5 +1,8 @@
 package com.b.dianqingoa.util;
 
+/**
+ * 该类的作用是：断言失败但是继续执行
+ */
 import java.util.ArrayList;
 import java.util.List;
 

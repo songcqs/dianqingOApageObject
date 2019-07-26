@@ -1,5 +1,6 @@
 <project name="dianqingOApageObject" basedir=".">
-
+	
+	<!-- 可行，但要先运行testngxml -->
     <property name="src.dir" value="src"/>
     <property name="lib.dir" value="lib"/>
     <property name="test.dir" value="test"/>
