@@ -28,7 +28,7 @@
 		<dependency>
 			<groupId>junit</groupId>  <!-- 项目组织唯一标识 -->
 			<artifactId>junit</artifactId>  <!-- 项目唯一标识 -->
-			<version>3.8.1</version>
+			<version>4.13.1</version>
 			<scope>test</scope>
 		</dependency>
 
